@@ -4,7 +4,13 @@ const router = express.Router();
 
 router.get('/', async (req, res) => {
   try {
-    const allProjects = await Projects.getProjects();
+    const allProjects = await Projects
+      .getProjects()
+      .map(project => {
+        if (project.completed) {project.completed = true}
+        else project.completed = false
+        return project
+      })
     res.status(200).json(allProjects);
   } catch (error) {
     res.status(500).json({ message: 'failed' + error });
@@ -42,7 +48,13 @@ router.post('/resources', async (req, res) => {
 
 router.get('/tasks', async (req, res) => {
   try {
-    const allTasks = await Projects.getTasks();
+    const allTasks = await Projects
+      .getTasks()
+      .map(task => {
+        if (task.completed) {task.completed = true}
+        else task.completed = false
+        return task
+      })
     res.status(200).json(allTasks);
   } catch (error) {
     res.status(500).json({ message: 'failed' + error });
