@@ -8,7 +8,8 @@ module.exports = {
   getTasks,
   addProject,
   addResource,
-  addTask
+  addTask,
+  updateProject
 }
 
 function getResources() {
@@ -39,3 +40,11 @@ async function addTask(newTask) {
   await db('tasks').insert(newTask)
   return getTasks()
 }
+
+async function updateProject(id, changes) {
+  await db('projects')
+    .where({id})
+    .update(changes)
+  return getProjects()
+}
+

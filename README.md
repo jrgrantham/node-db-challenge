@@ -40,7 +40,8 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 - [ ] Explain the difference between `Relational Databases` and `SQL`.
 
-SQL is a relational database
+A relational relational database is a set of interlinking tables that store data.
+SQL is a type of relational database, named after the language its written in (structured query language)
 
 - [ ] Why do tables need a `primary key`?
 
@@ -52,7 +53,7 @@ Foreign key
 
 - [ ] What do we need in order to have a _many to many_ relationship between two tables.
 
-An intermadiate table
+An intermediate table
 
 ## Minimum Viable Product
 

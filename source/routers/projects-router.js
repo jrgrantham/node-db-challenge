@@ -27,6 +27,17 @@ router.post('/', async (req, res) => {
   }
 });
 
+router.put('/', async (req, res) => {
+  try {
+    const {id, name, description, completed} = req.body
+    const allProjects = await Projects
+      .updateProject(id, {name, description, completed})
+      res.status(200).json(allProjects);
+  } catch (error) {
+    res.status(500).json({ message: 'failed' + error });
+  }
+})
+
 router.get('/resources', async (req, res) => {
   try {
     const allResources = await Projects.getResources();
